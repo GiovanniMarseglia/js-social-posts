@@ -77,7 +77,7 @@ posts.forEach((element) => {
                                             </div>
                                             <div class="post-meta__data">
                                                 <div class="post-meta__author">${element.author.name}</div>
-                                                <div class="post-meta__time">${element.created}</div>
+                                                <div class="post-meta__time">${formattaData(element.created)}</div>
                                             </div>
                                         </div>
                                     </div>
@@ -118,12 +118,13 @@ const likeCounters = document.querySelectorAll(`.js-likes-counter`)
 likeButtons.forEach((element,index) =>{
 
     element.addEventListener("click", function(event){
+        console.log(element)
         event.preventDefault();
         this.classList.toggle("like-button--liked")
 
         let postIndex = like.indexOf(posts[index].id)
 
-        console.log(postIndex)
+        console.log("posizione",postIndex)
 
         if(this.classList.contains("like-button--liked")){
             likeCounters[index].innerText = +likeCounters[index].innerText - 1;
@@ -139,6 +140,19 @@ likeButtons.forEach((element,index) =>{
 
 
 })
+
+
+// formattazione data nel formato europeo
+
+
+function formattaData(created){
+    let datadivisa = created.split("-")
+
+     let[a,b,c]=datadivisa
+    
+     return a=c+"-"+b+"-"+a
+
+}
 
 
   
