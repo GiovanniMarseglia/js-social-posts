@@ -127,13 +127,11 @@ likeButtons.forEach((element,index) =>{
         console.log("posizione",postIndex)
 
         if(this.classList.contains("like-button--liked")){
-            likeCounters[index].innerText = +likeCounters[index].innerText - 1;
-            like.push(posts[index].id)
+            likeCounters[index].innerText = +likeCounters[index].innerText + 1;
 
         }else{
-            likeCounters[index].innerText = +likeCounters[index].innerText + 1;
-            like.splice(postIndex, 1)
-            
+            likeCounters[index].innerText = +likeCounters[index].innerText - 1;
+           
         }
     })
 
